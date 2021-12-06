@@ -18,22 +18,22 @@
 // configurable parameters
 #define SND_VEL 346.0 // sound velocity at 24 celsius degree (unit: m/s)
 #define _INTERVAL_DIST 25  // USS interval (unit: ms)
-#define _INTERVAL_SERVO 20  // servo interval (unit: ms)
-#define _INTERVAL_SERIAL 100 // serial interval (unit: ms)
+#define _INTERVAL_SERVO 5  // servo interval (unit: ms)
+#define _INTERVAL_SERIAL 150 // serial interval (unit: ms)
 #define _DIST_MIN 100 // minimum distance to be measured (unit: mm)
 #define _DIST_MAX 450 // maximum distance to be measured (unit: mm)
-#define INTERVAL 25 // sampling interval (unit: ms)
+#define INTERVAL 100 // sampling interval (unit: ms)
 
 // Servo speed control
 #define _SERVO_ANGLE 30 // 최대 가동범위에 따른 목표 서보 회전각
-#define _SERVO_SPEED 6000 // 서보 속도 설정
+#define _SERVO_SPEED 13 // 서보 속도 설정
 
 #define _DUTY_MIN 1000 // servo full clockwise position (0 degree)
 #define _DUTY_NEU 1500 // servo neutral position (90 degree)
 #define _DUTY_MAX 2000 // servo full counterclockwise position (180 degree)
 
-#define _KP 2.0        //비례제어 값
-#define _KD 12         //미분제어 값
+#define _KP 2        //비례제어 값
+#define _KD 46         //미분제어 값
 
 
 Servo myservo;
@@ -138,7 +138,7 @@ void loop() {
   // get a distance reading from the distance sensor
 
   // PID control logic
-    error_curr = dist_target - dist_cali;
+    error_curr = (dist_target - dist_cali);
     pterm = _KP * error_curr ;
     dterm = _KD * (error_curr - error_prev);
     control = pterm + dterm;
