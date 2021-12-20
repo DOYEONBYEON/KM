@@ -22,7 +22,7 @@
 #define _INTERVAL_SERIAL 100 // serial interval (unit: ms)
 #define _DIST_MIN 100 // minimum distance to be measured (unit: mm)
 #define _DIST_MAX 450 // maximum distance to be measured (unit: mm)
-#define INTERVAL 1 // sampling interval (unit: ms)
+#define INTERVAL 0.3 // sampling interval (unit: ms)
 
 // Servo speed control
 #define _SERVO_ANGLE 30 // 최대 가동범위에 따른 목표 서보 회전각
@@ -33,11 +33,11 @@
 #define _DUTY_NEU 1500 // servo neutral position (90 degree)
 #define _DUTY_MAX 2000 // servo full counterclockwise position (180 degree)
 
-#define _KP 2        //비례제어 값
-#define _KD 103        //미분제어 값
-#define _KI 1
+#define _KP 1.8        //비례제어 값
+#define _KD 120       //미분제어 값
+#define _KI 0.1
 
-#define _ITERM_MAX 30
+#define _ITERM_MAX 20
 
 Servo myservo;
 int a, b; // unit: mm
